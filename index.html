@@ -6,123 +6,26 @@
     <title>Happy Birthday Ayesha</title>
     <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Hind Siliguri', sans-serif;
-            background: #fce4ec;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        #slides-container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slide {
-            display: none;
-            width: 90%;
-            max-width: 600px;
-            padding: 30px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            animation: fadeIn 0.8s ease;
-        }
-
-        .slide.active {
-            display: block;
-        }
-
-        /* স্টাইলিশ নাম */
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            color: #d81b60;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* স্টাইলিশ তারিখ */
-        .birth-date {
-            font-family: 'Galada', cursive;
-            color: #ff4081;
-            font-size: 1.8rem;
-            margin-top: 5px;
-        }
-
-        /* স্টাইলিশ বাংলা উইশ */
-        .bengali-wish {
-            font-family: 'Hind Siliguri', sans-serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: #c2185b;
-            line-height: 1.6;
-        }
-
-        button {
-            background: #ff4081;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 25px;
-            transition: 0.3s;
-            font-family: 'Hind Siliguri', sans-serif;
-        }
-
-        button:hover {
-            background: #e91e63;
-            transform: scale(1.05);
-        }
-
-        .confetti {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-        }
-
-        .confetti div {
-            position: absolute;
-            width: 10px; height: 10px;
-            animation: fall linear forwards;
-        }
-
-        @keyframes fall {
-            to { transform: translateY(100vh) rotate(360deg); }
-        }
-
-        #balloon-container img {
-            position: absolute;
-            width: 65px;
-            cursor: pointer;
-        }
-
-        textarea {
-            width: 85%;
-            height: 80px;
-            margin-top: 15px;
-            border-radius: 10px;
-            padding: 10px;
-            border: 1px solid #ffc1e3;
-            font-family: 'Hind Siliguri', sans-serif;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        body { margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; background: #fce4ec; overflow: hidden; text-align: center; }
+        #slides-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .slide { display: none; width: 90%; max-width: 600px; padding: 30px; background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); animation: fadeIn 0.8s ease; }
+        .slide.active { display: block; }
+        h1 { font-family: 'Dancing Script', cursive; color: #d81b60; font-size: 2.5rem; margin-bottom: 10px; }
+        .birth-date { font-family: 'Galada', cursive; color: #ff4081; font-size: 1.8rem; margin-top: 5px; }
+        .bengali-wish { font-family: 'Hind Siliguri', sans-serif; font-weight: 700; font-size: 1.4rem; color: #c2185b; line-height: 1.6; }
+        button { background: #ff4081; color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; margin-top: 25px; transition: 0.3s; font-family: 'Hind Siliguri', sans-serif; }
+        button:hover { background: #e91e63; transform: scale(1.05); }
+        .confetti { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .confetti div { position: absolute; width: 10px; height: 10px; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
+        #balloon-container { position: relative; width: 100%; height: 250px; margin-top: 20px; }
+        #balloon-container img { position: absolute; width: 65px; cursor: pointer; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
 <body>
 
 <div id="slides-container">
-
     <section class="slide active" id="slide1">
         <h1>Happy Birthday Dear Ayesha</h1>
         <div class="birth-date">১৩ অক্টোবর</div>
@@ -132,60 +35,48 @@
 
     <section class="slide" id="slide2">
         <h2 style="color: #d81b60;">মোমবাতি নেভাও গো! 🕯️</h2>
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyc2NpYm9jMHljdWF1bGNocXRrajlndHEyaG41eXd4NnhubWJhdTJocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TCatn41OHqDaSdIFlM/giphy.gif" 
-             alt="Birthday Cake" id="cake" style="width:220px; cursor:pointer; margin: 20px 0;">
-        <audio id="birthdaySong" src="Ronii.mp3"></audio>
-        <br>
-        <button onclick="nextSlide()">উপহার খোলো 🎁</button>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyc2NpYm9jMHljdWF1bGNocXRrajlndHEyaG41eXd4NnhubWJhdTJocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TCatn41OHqDaSdIFlM/giphy.gif" alt="Cake" id="cake" style="width:220px; cursor:pointer; margin: 20px 0;">
+        <audio id="birthdaySong" src="Ronii.mp3" preload="auto"></audio>
+        <br><button onclick="nextSlide()">উপহার খোলো 🎁</button>
     </section>
 
     <section class="slide" id="slide3">
         <h2 style="color: #d81b60;">গিফটে ক্লিক করো!</h2>
-        <img src="https://i.postimg.cc/FsyY2yWw/IMG-20251009-120746421-HDR.jpg" 
-             alt="Gift" id="giftImg" style="width:160px; cursor:pointer;">
+        <img src="https://i.postimg.cc/FsyY2yWw/IMG-20251009-120746421-HDR.jpg" alt="Gift" id="giftImg" style="width:160px; cursor:pointer; border-radius: 10px;">
         <div id="fireworks"></div>
         <img src="https://i.ibb.co/1vLgWgP/tulip.png" alt="Tulip" id="tulipImg" style="display:none; width:120px; margin: 20px auto;">
-        <br>
-        <button onclick="nextSlide()">গেম খেলো 🎈</button>
+        <br><button onclick="nextSlide()">গেম খেলো 🎈</button>
     </section>
 
     <section class="slide" id="slide4">
-        <h2 style="color: #d81b60;">বেলুনগুলো ফাটিয়ে দাও!</h2>
+        <h2 style="color: #d81b60;">বেলুনগুলো ফাটিয়ে দাও!</h2>
         <p>বেলুনের ওপর ক্লিক করো গো 🎈</p>
         <div id="balloon-container"></div>
         <button onclick="nextSlide()">শেষ চমক ✨</button>
     </section>
 
     <section class="slide" id="slide5">
-        <div class="bengali-wish">
-            শুভ জন্মদিন প্রিয়, আল্লাহ তোমায় সবসময় ভালো রাখুক 💟♥️💖
-        </div>
-        <textarea id="wishText" placeholder="তোমার জন্য কিছু লিখো..."></textarea>
-        <br>
-        <button onclick="addWish()">পাঠিয়ে দাও 🎁</button>
-        <ul id="wishList" style="list-style: none; padding: 10px 0; color: #d81b60;"></ul>
+        <div class="bengali-wish">শুভ জন্মদিন প্রিয়, আল্লাহ তোমায় সবসময় ভালো রাখুক 💟♥️💖</div>
+        <textarea id="wishText" style="width:85%; height:80px; margin-top:15px; padding:10px; border-radius:10px; border:1px solid #ffc1e3;" placeholder="তোমার জন্য কিছু লিখো..."></textarea>
+        <br><button onclick="addWish()">পাঠিয়ে দাও 🎁</button>
+        <ul id="wishList" style="list-style: none; padding: 10px 0; color: #d81b60; font-weight: bold;"></ul>
     </section>
-
 </div>
 
 <script>
     let currentSlide = 1;
-
     function nextSlide() {
         document.getElementById('slide' + currentSlide).classList.remove('active');
         currentSlide++;
         const next = document.getElementById('slide' + currentSlide);
-        if (next) {
-            next.classList.add('active');
-        }
-
+        if (next) next.classList.add('active');
         if (currentSlide === 2) {
-            document.getElementById('birthdaySong').play();
+            const song = document.getElementById('birthdaySong');
+            song.play().catch(error => {
+                console.log("Auto-play was prevented. Click anywhere to play.");
+            });
         }
-        
-        if (currentSlide === 4) {
-            createBalloons();
-        }
+        if (currentSlide === 4) createBalloons();
     }
 
     const confettiContainer = document.getElementById('confetti-box');
@@ -198,26 +89,18 @@
         confettiContainer.appendChild(confetti);
     }
 
-    document.getElementById('cake').addEventListener('click', () => {
-        alert("🎂 তোমার সব ইচ্ছা পূরণ হোক! 🎂");
-    });
-
-    const giftImg = document.getElementById('giftImg');
-    const tulipImg = document.getElementById('tulipImg');
-    const fireworks = document.getElementById('fireworks');
-
-    giftImg.addEventListener('click', () => {
-        giftImg.style.display = 'none';
-        tulipImg.style.display = 'block';
+    document.getElementById('giftImg').addEventListener('click', function() {
+        this.style.display = 'none';
+        document.getElementById('tulipImg').style.display = 'block';
         launchFireworks();
     });
 
     function launchFireworks() {
+        const fireworks = document.getElementById('fireworks');
         for (let i = 0; i < 40; i++) {
             const fw = document.createElement('div');
             fw.style.position = 'absolute';
-            fw.style.width = '6px';
-            fw.style.height = '6px';
+            fw.style.width = '6px'; fw.style.height = '6px';
             fw.style.borderRadius = '50%';
             fw.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
             fw.style.top = Math.random() * window.innerHeight + 'px';
@@ -228,37 +111,32 @@
     }
 
     function createBalloons() {
-    function createBalloons() {
-    const container = document.getElementById('balloon-container');
-    container.innerHTML = '';
-    
-    const messages = ["I Love You! ❤️", "শুভ জন্মদিন! 🎂", "Ayesha ✨", "Aysha+Roni", "প্রিয়তমা 💍", "সবসময় পাশে থেকো 😊"];
+        const container = document.getElementById('balloon-container');
+        container.innerHTML = '';
+        const messages = ["I Love You! ❤️", "শুভ জন্মদিন! 🎂", "Ayesha ✨", "Aysha+Roni", "প্রিয়তমা 💍", "সবসময় পাশে থেকো 😊"];
 
-        
-    for (let i = 0; i < 12; i++) {
-        const balloon = document.createElement('img');
-        balloon.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
-        balloon.style.left = Math.random() * 80 + 'vw';
-        balloon.style.top = Math.random() * 60 + 'vh';
-        container.appendChild(balloon);
+        for (let i = 0; i < 12; i++) {
+            const balloon = document.createElement('img');
+            balloon.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
+            balloon.style.left = Math.random() * 80 + 'vw';
+            balloon.style.top = Math.random() * 50 + 'px';
+            container.appendChild(balloon);
 
-        balloon.addEventListener('click', () => {
-            balloon.style.display = 'none';
-            const pop = document.createElement('div');
-            
-            
-            const randomText = messages[Math.floor(Math.random() * messages.length)];
-            pop.textContent = randomText;
-            
-            pop.style.position = 'absolute';
-            pop.style.left = balloon.style.left;
-            pop.style.top = balloon.style.top;
-            pop.style.color = "#ff4081";
-            pop.style.fontWeight = "bold";
-            document.body.appendChild(pop);
-            setTimeout(() => pop.remove(), 1000);
-        });
-    }
+            balloon.addEventListener('click', () => {
+                balloon.style.display = 'none';
+                const pop = document.createElement('div');
+                const randomText = messages[Math.floor(Math.random() * messages.length)];
+                pop.textContent = randomText;
+                pop.style.position = 'absolute';
+                pop.style.left = balloon.style.left;
+                pop.style.top = balloon.style.top;
+                pop.style.color = "#ff4081";
+                pop.style.fontWeight = "bold";
+                pop.style.fontSize = "1.2rem";
+                document.body.appendChild(pop);
+                setTimeout(() => pop.remove(), 1200);
+            });
+        }
     }
 
     function addWish() {
@@ -270,6 +148,5 @@
         document.getElementById('wishText').value = "";
     }
 </script>
-
 </body>
 </html>
