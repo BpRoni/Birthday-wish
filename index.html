@@ -131,10 +131,10 @@
     </section>
 
     <section class="slide" id="slide2">
-        <h2 style="color: #d81b60;">মোমবাতি নেভাও! 🕯️</h2>
+        <h2 style="color: #d81b60;">মোমবাতি নেভাও গো! 🕯️</h2>
         <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyc2NpYm9jMHljdWF1bGNocXRrajlndHEyaG41eXd4NnhubWJhdTJocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TCatn41OHqDaSdIFlM/giphy.gif" 
              alt="Birthday Cake" id="cake" style="width:220px; cursor:pointer; margin: 20px 0;">
-        <audio id="birthdaySong" src="Ayesha.mp3"></audio>
+        <audio id="birthdaySong" src="Ronii.mp3"></audio>
         <br>
         <button onclick="nextSlide()">উপহার খোলো 🎁</button>
     </section>
@@ -151,7 +151,7 @@
 
     <section class="slide" id="slide4">
         <h2 style="color: #d81b60;">বেলুনগুলো ফাটিয়ে দাও!</h2>
-        <p>বেলুনের ওপর ক্লিক করো 🎈</p>
+        <p>বেলুনের ওপর ক্লিক করো গো 🎈</p>
         <div id="balloon-container"></div>
         <button onclick="nextSlide()">শেষ চমক ✨</button>
     </section>
@@ -228,28 +228,37 @@
     }
 
     function createBalloons() {
-        const container = document.getElementById('balloon-container');
-        container.innerHTML = '';
-        for (let i = 0; i < 12; i++) {
-            const balloon = document.createElement('img');
-            balloon.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
-            balloon.style.left = Math.random() * 80 + 'vw';
-            balloon.style.top = Math.random() * 60 + 'vh';
-            container.appendChild(balloon);
+    function createBalloons() {
+    const container = document.getElementById('balloon-container');
+    container.innerHTML = '';
+    
+    const messages = ["I Love You! ❤️", "শুভ জন্মদিন! 🎂", "Ayesha ✨", "Aysha+Roni", "প্রিয়তমা 💍", "সবসময় পাশে থেকো 😊"];
 
-            balloon.addEventListener('click', () => {
-                balloon.style.display = 'none';
-                const pop = document.createElement('div');
-                pop.textContent = "POP! 🎈";
-                pop.style.position = 'absolute';
-                pop.style.left = balloon.style.left;
-                pop.style.top = balloon.style.top;
-                pop.style.color = "#ff4081";
-                pop.style.fontWeight = "bold";
-                document.body.appendChild(pop);
-                setTimeout(() => pop.remove(), 1000);
-            });
-        }
+        
+    for (let i = 0; i < 12; i++) {
+        const balloon = document.createElement('img');
+        balloon.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
+        balloon.style.left = Math.random() * 80 + 'vw';
+        balloon.style.top = Math.random() * 60 + 'vh';
+        container.appendChild(balloon);
+
+        balloon.addEventListener('click', () => {
+            balloon.style.display = 'none';
+            const pop = document.createElement('div');
+            
+            
+            const randomText = messages[Math.floor(Math.random() * messages.length)];
+            pop.textContent = randomText;
+            
+            pop.style.position = 'absolute';
+            pop.style.left = balloon.style.left;
+            pop.style.top = balloon.style.top;
+            pop.style.color = "#ff4081";
+            pop.style.fontWeight = "bold";
+            document.body.appendChild(pop);
+            setTimeout(() => pop.remove(), 1000);
+        });
+    }
     }
 
     function addWish() {
