@@ -6,27 +6,25 @@
     <title>Happy Birthday Ayesha</title>
     <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; background: #fce4ec; overflow: hidden; text-align: center; }
-        #slides-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
-        .slide { display: none; width: 90%; max-width: 600px; padding: 30px; background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); animation: fadeIn 0.8s ease; position: relative; }
+        body { margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; background: #fce4ec; overflow-x: hidden; text-align: center; }
+        #slides-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; position: relative; }
+        .slide { display: none; width: 90%; max-width: 500px; padding: 25px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); animation: fadeIn 0.5s ease; position: relative; z-index: 5; }
         .slide.active { display: block; }
-        h1 { font-family: 'Dancing Script', cursive; color: #d81b60; font-size: 2.5rem; margin-bottom: 10px; }
-        .birth-date { font-family: 'Galada', cursive; color: #ff4081; font-size: 1.8rem; margin-top: 5px; }
-        .bengali-wish { font-family: 'Hind Siliguri', sans-serif; font-weight: 700; font-size: 1.4rem; color: #c2185b; line-height: 1.6; }
-        button { background: #ff4081; color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; margin-top: 25px; transition: 0.3s; font-family: 'Hind Siliguri', sans-serif; position: relative; z-index: 10; }
-        button:hover { background: #e91e63; transform: scale(1.05); }
-        .confetti { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-        .confetti div { position: absolute; width: 10px; height: 10px; animation: fall linear forwards; }
-        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
+        h1 { font-family: 'Dancing Script', cursive; color: #d81b60; font-size: 2.2rem; margin: 0; }
+        .birth-date { font-family: 'Galada', cursive; color: #ff4081; font-size: 1.5rem; }
+        button { background: #ff4081; color: white; border: none; padding: 12px 20px; border-radius: 30px; cursor: pointer; margin-top: 20px; font-family: 'Hind Siliguri', sans-serif; font-weight: bold; }
         
-        /* বেলুন গেমের জন্য স্টাইল */
-        #balloon-container { position: relative; width: 100%; height: 350px; margin: 15px auto; border: 2px dashed #ffc1e3; border-radius: 15px; background: rgba(255, 255, 255, 0.5); overflow: hidden; }
-        #balloon-container img { position: absolute; width: 55px; cursor: pointer; transition: transform 0.1s; }
-        #balloon-container img:hover { transform: scale(1.1); }
-        .pop-text { position: absolute; color: #ff4081; font-weight: bold; font-size: 1.2rem; pointer-events: none; animation: floatUp 1s ease-out forwards; white-space: nowrap; font-family: 'Hind Siliguri', sans-serif; }
-        @keyframes floatUp { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-30px); } }
+        /* বেলুন গেমের মেইন এরিয়া */
+        #balloon-game-area { position: relative; width: 100%; height: 350px; background: #fff5f8; border-radius: 15px; border: 2px dashed #ffc1e3; margin: 15px 0; overflow: hidden; }
+        .balloon { position: absolute; width: 60px; cursor: pointer; transition: transform 0.1s; z-index: 10; }
         
-        textarea { width: 85%; height: 80px; margin-top: 15px; border-radius: 10px; padding: 10px; border: 1px solid #ffc1e3; font-family: 'Hind Siliguri', sans-serif; }
+        /* বেলুন ফাটলে যে লেখা উঠবে তার স্টাইল */
+        .pop-msg { position: absolute; color: #d81b60; font-weight: bold; font-size: 1.1rem; pointer-events: none; z-index: 20; animation: moveUp 1s ease-out forwards; white-space: nowrap; }
+        @keyframes moveUp {
+            0% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-50px); }
+        }
+        
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
@@ -37,36 +35,33 @@
         <h1>Happy Birthday Dear Ayesha</h1>
         <div class="birth-date">১৩ অক্টোবর</div>
         <button onclick="nextSlide()">একটি উইশ করো ✨</button>
-        <div class="confetti" id="confetti-box"></div>
     </section>
 
     <section class="slide" id="slide2">
-        <h2 style="color: #d81b60;">মোমবাতি নেভাও গো! 🕯️</h2>
-        <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyc2NpYm9jMHljdWF1bGNocXRrajlndHEyaG41eXd4NnhubWJhdTJocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TCatn41OHqDaSdIFlM/giphy.gif" alt="Birthday Cake" id="cake" style="width:220px; cursor:pointer; margin: 20px 0;">
+        <h2 style="color: #d81b60;">মোমবাতি নেভাও! 🕯️</h2>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUyc2NpYm9jMHljdWF1bGNocXRrajlndHEyaG41eXd4NnhubWJhdTJocSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TCatn41OHqDaSdIFlM/giphy.gif" alt="Cake" id="cake" style="width:180px; cursor:pointer;">
         <audio id="birthdaySong" src="Ronii.mp3" preload="auto"></audio>
         <br><button onclick="nextSlide()">উপহার খোলো 🎁</button>
     </section>
 
     <section class="slide" id="slide3">
         <h2 style="color: #d81b60;">গিফটে ক্লিক করো!</h2>
-        <img src="https://i.postimg.cc/FsyY2yWw/IMG-20251009-120746421-HDR.jpg" alt="Gift" id="giftImg" style="width:160px; cursor:pointer; border-radius: 10px;">
-        <div id="fireworks"></div>
-        <img src="https://i.ibb.co/1vLgWgP/tulip.png" alt="Tulip" id="tulipImg" style="display:none; width:120px; margin: 20px auto; border-radius: 10px;">
+        <img src="https://i.postimg.cc/FsyY2yWw/IMG-20251009-120746421-HDR.jpg" alt="Gift" id="giftImg" style="width:150px; cursor:pointer; border-radius: 10px;">
+        <img src="https://i.ibb.co/1vLgWgP/tulip.png" alt="Tulip" id="tulipImg" style="display:none; width:120px; margin: 10px auto;">
         <br><button onclick="nextSlide()">গেম খেলো 🎈</button>
     </section>
 
     <section class="slide" id="slide4">
         <h2 style="color: #d81b60;">বেলুনগুলো ফাটিয়ে দাও!</h2>
-        <p>বেলুনের ওপর ক্লিক করো গো 🎈</p>
-        <div id="balloon-container"></div>
+        <div id="balloon-game-area"></div>
         <button onclick="nextSlide()">শেষ চমক ✨</button>
     </section>
 
     <section class="slide" id="slide5">
-        <div class="bengali-wish">শুভ জন্মদিন প্রিয়, আল্লাহ তোমায় সবসময় ভালো রাখুক 💟♥️💖</div>
-        <textarea id="wishText" placeholder="তোমার জন্য কিছু লিখো..."></textarea>
+        <div style="font-weight:bold; color:#c2185b;">শুভ জন্মদিন প্রিয়, আল্লাহ তোমায় সবসময় ভালো রাখুক 💖</div>
+        <textarea id="wishText" style="width:90%; height:70px; margin-top:10px; border-radius:10px; border:1px solid #ffc1e3;" placeholder="কিছু লিখো..."></textarea>
         <br><button onclick="addWish()">পাঠিয়ে দাও 🎁</button>
-        <ul id="wishList" style="list-style: none; padding: 10px 0; color: #d81b60; font-weight: bold;"></ul>
+        <ul id="wishList" style="list-style: none; padding: 0; color: #d81b60;"></ul>
     </section>
 </div>
 
@@ -77,100 +72,59 @@
         currentSlide++;
         const next = document.getElementById('slide' + currentSlide);
         if (next) next.classList.add('active');
-        if (currentSlide === 2) {
-            const song = document.getElementById('birthdaySong');
-            song.play().catch(e => console.log("Music failed"));
-        }
-        if (currentSlide === 4) createBalloons();
-    }
-
-    const confettiContainer = document.getElementById('confetti-box');
-    for (let i = 0; i < 60; i++) {
-        const confetti = document.createElement('div');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        confetti.style.top = "-10px";
-        confettiContainer.appendChild(confetti);
+        if (currentSlide === 2) document.getElementById('birthdaySong').play();
+        if (currentSlide === 4) setupBalloonGame();
     }
 
     document.getElementById('giftImg').addEventListener('click', function() {
         this.style.display = 'none';
         document.getElementById('tulipImg').style.display = 'block';
-        launchFireworks();
     });
 
-    function launchFireworks() {
-        const fireworks = document.getElementById('fireworks');
-        for (let i = 0; i < 40; i++) {
-            const fw = document.createElement('div');
-            fw.style.position = 'absolute';
-            fw.style.width = '6px'; fw.style.height = '6px';
-            fw.style.borderRadius = '50%';
-            fw.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            fw.style.top = Math.random() * window.innerHeight + 'px';
-            fw.style.left = Math.random() * window.innerWidth + 'px';
-            fireworks.appendChild(fw);
-            setTimeout(() => fw.remove(), 2000);
-        }
-    }
-
-    // বেলুন গেমের ফিক্স করা ফাংশন
-    function createBalloons() {
-        const container = document.getElementById('balloon-container');
-        container.innerHTML = ''; // আগের বেলুন পরিষ্কার করা
-        
-        const messages = [
-            "I Love You! ❤️", 
-            "শুভ জন্মদিন! 🎂", 
-            "Ayesha ✨", 
-            "Aysha+Roni", 
-            "প্রিয়তমা 💍", 
-            "সবসময় পাশে থেকো 😊",
-            "আমার ভালোবাসা 💖",
-            "অনেক দোয়া রইলো 🤲"
-        ];
-
-        // কন্টেইনারের সাইজ অনুযায়ী বেলুনগুলো ছড়িয়ে দেওয়া
-        const containerWidth = container.offsetWidth || 300; // ব্যাকআপ সাইজ
-        const containerHeight = container.offsetHeight || 350;
+    function setupBalloonGame() {
+        const area = document.getElementById('balloon-game-area');
+        area.innerHTML = '';
+        const messages = ["I Love You! ❤️", "শুভ জন্মদিন! 🎂", "Ayesha ✨", "Aysha+Roni", "প্রিয়তমা 💍", "হাসিখুশি থেকো 😊", "আমার কলিজা 💖", "দোয়া রইলো 🤲"];
 
         for (let i = 0; i < 10; i++) {
-            const balloon = document.createElement('img');
-            balloon.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
+            const b = document.createElement('img');
+            b.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
+            b.className = 'balloon';
             
-            // বেলুনের পজিশন Pixel (px) এ সেট করা, যাতে VW বা VH এর গোলমাল না হয়
-            const randomLeft = Math.random() * (containerWidth - 60); // বেলুনের প্রস্থ (৬০) বাদ দিয়ে
-            const randomTop = Math.random() * (containerHeight - 80); // বেলুনের উচ্চতা বাদ দিয়ে
+            // বেলুনগুলো কন্টেইনারের ভেতর রেন্ডমলি ছড়িয়ে দেওয়া
+            const x = Math.random() * (area.clientWidth - 60);
+            const y = Math.random() * (area.clientHeight - 80);
             
-            balloon.style.left = randomLeft + 'px';
-            balloon.style.top = randomTop + 'px';
-            container.appendChild(balloon);
+            b.style.left = x + 'px';
+            b.style.top = y + 'px';
+            area.appendChild(b);
 
-            balloon.addEventListener('click', function() { 
-                this.style.display = 'none'; // বেলুন অদৃশ্য করা
+            b.addEventListener('click', function(e) {
+                // বেলুন ফাটানোর পজিশন সেভ করা
+                const rect = area.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+
+                this.remove(); // বেলুন মুছে ফেলা
+
+                // মেসেজ তৈরি করা
+                const msg = document.createElement('div');
+                msg.className = 'pop-msg';
+                msg.textContent = messages[Math.floor(Math.random() * messages.length)];
                 
-                const pop = document.createElement('div');
-                pop.className = 'pop-text'; // স্টাইল ক্লাস ব্যবহার করা
+                // লেখাটি ঠিক যেখানে ক্লিক করা হয়েছে সেখানে বসানো
+                msg.style.left = (clickX - 30) + 'px';
+                msg.style.top = (clickY - 20) + 'px';
                 
-                const randomText = messages[Math.floor(Math.random() * messages.length)];
-                pop.textContent = randomText;
-                
-                // লেখাটি ঠিক বেলুনের পজিশনেই সেট করা
-                pop.style.left = this.style.left;
-                pop.style.top = this.style.top;
-                
-                container.appendChild(pop); // বডির বদলে কন্টেইনারে অ্যাড করা
-                
-                // ১.২ সেকেন্ড পর লেখাটি মুছে দেওয়া (CSS অ্যানিমেশনের পর)
-                setTimeout(() => pop.remove(), 1200);
+                area.appendChild(msg);
+                setTimeout(() => msg.remove(), 1000);
             });
         }
     }
 
     function addWish() {
         const text = document.getElementById('wishText').value;
-        if (text.trim() === "") return;
+        if (!text.trim()) return;
         const li = document.createElement('li');
         li.textContent = "💖 " + text;
         document.getElementById('wishList').appendChild(li);
