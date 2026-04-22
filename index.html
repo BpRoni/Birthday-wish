@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Ayesha</title>
-    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hind+Siliguri:wght@400;700&family=Dancing+Script:wght@700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
         body { margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; background: #fce4ec; overflow-x: hidden; text-align: center; }
         #slides-container { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; position: relative; }
@@ -14,17 +14,20 @@
         .birth-date { font-family: 'Galada', cursive; color: #ff4081; font-size: 1.5rem; }
         button { background: #ff4081; color: white; border: none; padding: 12px 20px; border-radius: 30px; cursor: pointer; margin-top: 20px; font-family: 'Hind Siliguri', sans-serif; font-weight: bold; }
         
-        /* বেলুন গেমের মেইন এরিয়া */
-        #balloon-game-area { position: relative; width: 100%; height: 350px; background: #fff5f8; border-radius: 15px; border: 2px dashed #ffc1e3; margin: 15px 0; overflow: hidden; }
-        .balloon { position: absolute; width: 60px; cursor: pointer; transition: transform 0.1s; z-index: 10; }
-        
-        /* বেলুন ফাটলে যে লেখা উঠবে তার স্টাইল */
+        /* বেলুন গেম এরিয়া */
+        #balloon-game-area { position: relative; width: 100%; height: 320px; background: #fff5f8; border-radius: 15px; border: 2px dashed #ffc1e3; margin: 15px 0; overflow: hidden; }
+        .balloon { position: absolute; width: 55px; cursor: pointer; z-index: 10; }
         .pop-msg { position: absolute; color: #d81b60; font-weight: bold; font-size: 1.1rem; pointer-events: none; z-index: 20; animation: moveUp 1s ease-out forwards; white-space: nowrap; }
-        @keyframes moveUp {
-            0% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-50px); }
-        }
-        
+        @keyframes moveUp { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-50px); } }
+
+        /* পোলারয়েড অ্যালবাম স্টাইল */
+        .polaroid-container { position: relative; height: 300px; display: flex; justify-content: center; align-items: center; margin-top: 10px; }
+        .polaroid { background: white; padding: 10px 10px 35px 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); transform: rotate(-5deg); position: absolute; width: 180px; transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: 1px solid #ddd; }
+        .polaroid img { width: 100%; height: 180px; object-fit: cover; pointer-events: none; }
+        .polaroid p { font-family: 'Reenie Beanie', cursive; font-size: 1.6rem; margin: 10px 0 0 0; color: #333; pointer-events: none; }
+        .polaroid:nth-child(even) { transform: rotate(5deg); }
+        .polaroid.hidden { opacity: 0; transform: translateY(-120vh) rotate(30deg); pointer-events: none; }
+
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
@@ -54,10 +57,30 @@
     <section class="slide" id="slide4">
         <h2 style="color: #d81b60;">বেলুনগুলো ফাটিয়ে দাও!</h2>
         <div id="balloon-game-area"></div>
-        <button onclick="nextSlide()">শেষ চমক ✨</button>
+        <button onclick="nextSlide()">আমাদের স্মৃতি ✨</button>
     </section>
 
     <section class="slide" id="slide5">
+        <h2 style="color: #d81b60;">স্মৃতিগুলো সরিয়ে দেখো...</h2>
+        <div class="polaroid-container" id="album">
+            <div class="polaroid" onclick="popPhoto(this)">
+                <img src="https://i.postimg.cc/NfqC36J7/a1.jpg" alt="Memory 3">
+                <p>সবসময় এমন থেকো 💍</p>
+            </div>
+            <div class="polaroid" onclick="popPhoto(this)">
+                <img src="https://i.postimg.cc/CLTr3GPs/IMG-20250604-145706680-HDR.jpg" alt="Memory 2">
+                <p>তুমি শুধুই একান্ত আমার😊</p>
+            </div>
+            <div class="polaroid" onclick="popPhoto(this)">
+                <img src="https://i.postimg.cc/G3sSg7QG/IMG-20250903-211023133-HDR.jpg" alt="Memory 1">
+                <p>সবচেয়ে প্রিয় মুহূর্ত ❤️</p>
+            </div>
+        </div>
+        <p style="font-size: 0.9rem; color: #888; margin-top: 10px;">ছবির ওপর ক্লিক করো</p>
+        <button onclick="nextSlide()">শেষ চমক ✨</button>
+    </section>
+
+    <section class="slide" id="slide6">
         <div style="font-weight:bold; color:#c2185b;">শুভ জন্মদিন প্রিয়, আল্লাহ তোমায় সবসময় ভালো রাখুক 💖</div>
         <textarea id="wishText" style="width:90%; height:70px; margin-top:10px; border-radius:10px; border:1px solid #ffc1e3;" placeholder="কিছু লিখো..."></textarea>
         <br><button onclick="addWish()">পাঠিয়ে দাও 🎁</button>
@@ -76,6 +99,11 @@
         if (currentSlide === 4) setupBalloonGame();
     }
 
+    // ছবি সরানোর ফাংশন
+    function popPhoto(photo) {
+        photo.classList.add('hidden');
+    }
+
     document.getElementById('giftImg').addEventListener('click', function() {
         this.style.display = 'none';
         document.getElementById('tulipImg').style.display = 'block';
@@ -84,38 +112,24 @@
     function setupBalloonGame() {
         const area = document.getElementById('balloon-game-area');
         area.innerHTML = '';
-        const messages = ["I Love You! ❤️", "শুভ জন্মদিন! 🎂", "Ayesha ✨", "Aysha+Roni", "প্রিয়তমা 💍", "হাসিখুশি থেকো 😊", "আমার কলিজা 💖", "দোয়া রইলো 🤲"];
-
+        const messages = ["I Love You! ❤️", "শুভ জন্মদিন! 🎂", "Ayesha ✨", "Aysha+Roni", "প্রিয়তমা 💍", "হাসিখুশি থেকো 😊"];
         for (let i = 0; i < 10; i++) {
             const b = document.createElement('img');
             b.src = "https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydmx5dDF6eHhvdW9hYXY5ODdnYzl5MGxyaDJ0ZmFxeGxzN21mdGcyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vN2VlOnSeLd6UJsdRx/giphy.gif";
             b.className = 'balloon';
-            
-            // বেলুনগুলো কন্টেইনারের ভেতর রেন্ডমলি ছড়িয়ে দেওয়া
             const x = Math.random() * (area.clientWidth - 60);
             const y = Math.random() * (area.clientHeight - 80);
-            
-            b.style.left = x + 'px';
-            b.style.top = y + 'px';
+            b.style.left = x + 'px'; b.style.top = y + 'px';
             area.appendChild(b);
-
             b.addEventListener('click', function(e) {
-                // বেলুন ফাটানোর পজিশন সেভ করা
                 const rect = area.getBoundingClientRect();
                 const clickX = e.clientX - rect.left;
                 const clickY = e.clientY - rect.top;
-
-                this.remove(); // বেলুন মুছে ফেলা
-
-                // মেসেজ তৈরি করা
+                this.remove();
                 const msg = document.createElement('div');
                 msg.className = 'pop-msg';
                 msg.textContent = messages[Math.floor(Math.random() * messages.length)];
-                
-                // লেখাটি ঠিক যেখানে ক্লিক করা হয়েছে সেখানে বসানো
-                msg.style.left = (clickX - 30) + 'px';
-                msg.style.top = (clickY - 20) + 'px';
-                
+                msg.style.left = (clickX - 30) + 'px'; msg.style.top = (clickY - 20) + 'px';
                 area.appendChild(msg);
                 setTimeout(() => msg.remove(), 1000);
             });
